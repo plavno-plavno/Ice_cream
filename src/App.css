@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: #FAF6E6;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  font-family: Manrope, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  color: #111827;
+}
+
+.sidebar {
+  width: 53px;
+  height: 100%;
+  background-color: #222222;
+  flex-shrink: 0;
+}
+
+.content {
+  width: calc(100vw - 53px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Page 1 - Logo */
+.page-1 {
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  animation: fadeInSlide 0.8s ease-out;
+}
+
+
+
+.logo-image {
+  position: absolute;
+  width: 48vw;
+  top: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  z-index: 1;
+}
+
+.group-ice-cream-bottom {
+  position: absolute;
+  bottom: -55vh;
+  width: 60vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* Page 2 - Ice cream selection */
+.page-2 {
+  gap: 40px;
+  padding: 20px;
+  animation: fadeInSlide 0.8s ease-out;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+
+.instruction-text {
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.ice-cream-block {
+  width: 172px;
+  height: 235px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ice-cream-image-container {
+  width: 148px;
+  height: 148px;
+  background-color: #FBF8F4;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ice-cream-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.start-button {
+  width: 148px;
+  height: 51px;
+  background-color: #1261AA;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 16px 0;
+}
+
+.start-button:hover:not(:disabled) {
+  background-color: #0f5299;
+}
+
+.start-button:disabled {
+  cursor: not-allowed;
+}
+
+.start-button.loading {
+  background-color: #1261AA;
+}
+
+.loading-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: #1111113D;
+  transition: width 0.1s ease;
+  border-radius: 40px;
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+/* Page 3 - Success */
+.page-3 {
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+
+.success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.success-image {
+  width: 67.44px !important;
+  height: 67.44px !important;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.success-text {
+  text-align: center;
+}
+
+.group-ice-cream-right {
+  position: absolute;
+  width: 75vw;
+  right: -40vw;
+  bottom: -55vh;
+  transform: rotate(-30deg);
+  opacity: 1;
+  z-index: 1;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

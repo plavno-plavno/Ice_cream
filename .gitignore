@@ -1,0 +1,16 @@
+# npm
+node_modules
+#cursor configs
+.cursorrules
+.cursor
+#editor configs
+.idea
+.vscode
+# next.js build files
+.next
+# environment variables
+.env
+.env.*
+!.env.example
+# build files
+dist/
