@@ -166,7 +166,7 @@ const SuccessPage = () => (
         alt="Success" 
         className="success-image"
       />
-      <div className="success-text">Your ice cream is ready!</div>
+      <div className="success-text">Your ice-cream is ready!</div>
     </div>
   </div>
 )
@@ -187,12 +187,21 @@ function App() {
   const inactivityTimer = useTimer()
   const loadingInterval = useInterval()
   const successTimer = useTimer()
+  
+  // Keep track of loading state for timer callback
+  const isLoadingRef = useRef(false)
 
   // Handle inactivity timer
   const resetInactivityTimer = () => {
     if (currentPage === PAGES.MACHINE && !isLoading) {
       inactivityTimer.setTimer(() => {
-        setCurrentPage(PAGES.LANDING)
+        // Double check that we're still not loading when timer fires
+        if (!isLoadingRef.current) {
+          setCurrentPage(prev => {
+            // Only go to landing if we're still on machine page
+            return prev === PAGES.MACHINE ? PAGES.LANDING : prev
+          })
+        }
       }, TIMERS.INACTIVITY)
     }
   }
@@ -232,6 +241,7 @@ function App() {
 
   // Effects
   useEffect(() => {
+    isLoadingRef.current = isLoading
     resetInactivityTimer()
   }, [currentPage, isLoading])
 
