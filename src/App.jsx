@@ -92,6 +92,8 @@ const LandingPage = () => (
       src="/images/group_ice_cream.png" 
       alt="Ice Cream Group" 
       className="group-ice-cream-bottom"
+      loading="eager"
+      decoding="sync"
     />
   </div>
 )
@@ -132,12 +134,14 @@ const MachinePage = ({
     
     <div className="ice-cream-block">
       <div className="ice-cream-image-container">
-        <img 
-          src="/images/ice_cream.png" 
-          alt="Ice Cream" 
-          className="ice-cream-image"
-        />
-      </div>
+      <img 
+        src="/images/ice_cream.png" 
+        alt="Ice Cream" 
+        className="ice-cream-image"
+        loading="eager"
+        decoding="sync"
+      />
+    </div>
       
       <StartButton 
         isLoading={isLoading}
