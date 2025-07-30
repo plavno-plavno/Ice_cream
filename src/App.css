@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+@font-face {
+  font-family: 'Ibrand';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Ibrand.otf') format('opentype'),
+       url('/fonts/Ibrand.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&display=swap');
 
 .app {
   width: 100vw;
@@ -56,14 +65,40 @@
 
 
 
-.logo-image {
+.logo-text {
   position: absolute;
-  width: 48vw;
-  top: 4vh;
+  top: 6vh;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 1;
+  font-family: 'Ibrand', sans-serif;
+  font-size: 20vw;
+  color: #1261AA;
+  font-weight: normal;
   z-index: 1;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .logo-text {
+    font-size: 16vw;
+    top: 6vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo-text {
+    font-size: 18vw;
+    top: 8vh;
+  }
+}
+
+@media (min-width: 1600px) {
+  .logo-text {
+    font-size: 12vw;
+    top: 10vh;
+  }
 }
 
 .group-ice-cream-bottom {

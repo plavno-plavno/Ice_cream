@@ -87,11 +87,7 @@ const useLoadingState = () => {
 // Landing Page Component
 const LandingPage = () => (
   <div className="page page-1">
-    <img 
-      src="/images/logo_glove.png" 
-      alt="Glove Logo" 
-      className="logo-image"
-    />
+    <div className="logo-text">glavia</div>
     <img 
       src="/images/group_ice_cream.png" 
       alt="Ice Cream Group" 
