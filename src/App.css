@@ -142,7 +142,7 @@
 .group-ice-cream-bottom {
   width: 65vw; /* Fallback */
   width: clamp(60vw, 65vw, 70vw);
-  margin-top: -80px; /* Fallback */
+  margin-top: -50px; /* Fallback */
   margin-top: clamp(-140px, -10vh, -30px);
   align-self: center;
   -webkit-box-flex: 1; /* Old Safari */
