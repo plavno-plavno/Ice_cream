@@ -132,23 +132,11 @@ const MachinePage = ({
       }
     </div>
     
-    <div className="ice-cream-block">
-      <div className="ice-cream-image-container">
-      <img 
-        src="/images/ice_cream.png" 
-        alt="Ice Cream" 
-        className="ice-cream-image"
-        loading="eager"
-        decoding="sync"
-      />
-    </div>
-      
-      <StartButton 
-        isLoading={isLoading}
-        loadingProgress={loadingProgress}
-        onStart={onStart}
-      />
-    </div>
+    <StartButton 
+      isLoading={isLoading}
+      loadingProgress={loadingProgress}
+      onStart={onStart}
+    />
   </div>
 )
 
@@ -248,7 +236,7 @@ function App() {
   useEffect(() => {
     if (currentPage === PAGES.SUCCESS) {
       successTimer.setTimer(() => {
-        setCurrentPage(PAGES.MACHINE)
+        setCurrentPage(PAGES.LANDING)
         resetLoading()
       }, TIMERS.SUCCESS)
     }
@@ -282,6 +270,7 @@ function App() {
       <div className="content">
         {renderCurrentPage()}
       </div>
+      <div className="sidebar"/>
     </div>
   )
 }
