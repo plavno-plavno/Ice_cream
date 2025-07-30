@@ -9,7 +9,7 @@ const PAGES = {
 }
 
 const TIMERS = {
-  INACTIVITY: 12220000, // 10 seconds
+  INACTIVITY: 10000, // 10 seconds
   LOADING: 30000,    // 30 seconds
   SUCCESS: 5000      // 5 seconds
 }
