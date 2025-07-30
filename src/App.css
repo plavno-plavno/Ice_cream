@@ -12,6 +12,7 @@
 .app {
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   background-color: #FAF6E6;
   display: flex;
   position: relative;
@@ -22,6 +23,11 @@
   line-height: 120%;
   letter-spacing: 0%;
   color: #111827;
+  /* Safe areas for iPhone notch and home indicator */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .sidebar {
@@ -32,8 +38,8 @@
 }
 
 .content {
-  width: calc(100vw - 53px);
-  height: 100%;
+  width: calc(100vw - 53px - env(safe-area-inset-left) - env(safe-area-inset-right));
+  height: calc(100% - env(safe-area-inset-top) - env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,11 +73,11 @@
 
 .logo-text {
   position: absolute;
-  top: 6vh;
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Ibrand', sans-serif;
-  font-size: 20vw;
+  font-size: 15vw;
   color: #1261AA;
   font-weight: normal;
   z-index: 1;
@@ -80,20 +86,47 @@
   letter-spacing: -0.02em;
 }
 
-@media (min-width: 768px) {
+/* iPhone 6 and similar small screens */
+@media (max-width: 375px) and (max-height: 667px) {
   .logo-text {
-    font-size: 16vw;
-    top: 6vh;
+    font-size: 14vw;
+    top: 60px;
   }
 }
 
-@media (min-width: 1200px) {
+/* Small phones */
+@media (max-width: 414px) {
+  .logo-text {
+    font-size: 16vw;
+    top: 70px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 415px) and (max-width: 767px) {
   .logo-text {
     font-size: 18vw;
+    top: 80px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .logo-text {
+    font-size: 16vw;
     top: 8vh;
   }
 }
 
+/* Large screens */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .logo-text {
+    font-size: 14vw;
+    top: 8vh;
+  }
+}
+
+/* Extra large screens */
 @media (min-width: 1600px) {
   .logo-text {
     font-size: 12vw;
@@ -103,11 +136,19 @@
 
 .group-ice-cream-bottom {
   position: absolute;
-  bottom: -55vh;
+  bottom: calc(-55vh + env(safe-area-inset-bottom));
   width: 60vw;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+}
+
+/* For small screens, adjust bottom positioning */
+@media (max-width: 414px) {
+  .group-ice-cream-bottom {
+    bottom: calc(-45vh + env(safe-area-inset-bottom));
+    width: 70vw;
+  }
 }
 
 /* Page 2 - Ice cream selection */
@@ -121,6 +162,30 @@
   justify-content: center !important;
 }
 
+/* iPhone 6 and small screens */
+@media (max-width: 375px) {
+  .page-2 {
+    gap: 10px;
+    padding: 8px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 414px) {
+  .page-2 {
+    gap: 20px;
+    padding: 10px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 415px) and (max-width: 767px) {
+  .page-2 {
+    gap: 32px;
+    padding: 18px;
+  }
+}
+
 
 
 .instruction-text {
@@ -129,6 +194,31 @@
   padding: 0 20px;
   font-size: 28px;
   line-height: 130%;
+}
+
+/* iPhone 6 and small screens */
+@media (max-width: 375px) {
+  .instruction-text {
+    font-size: 16px;
+    padding: 0 12px;
+    line-height: 120%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 414px) {
+  .instruction-text {
+    font-size: 20px;
+    padding: 0 16px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 415px) and (max-width: 767px) {
+  .instruction-text {
+    font-size: 24px;
+    padding: 0 18px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -146,62 +236,123 @@
 }
 
 .ice-cream-block {
-  width: 280px;
-  height: 380px;
+  width: 220px;
+  height: 300px;
   background-color: #FFFFFF;
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 18px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  gap: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* iPhone 6 and small screens */
+@media (max-width: 375px) {
+  .ice-cream-block {
+    width: 160px;
+    height: 220px;
+    padding: 8px;
+    gap: 8px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Small phones */
+@media (max-width: 414px) {
+  .ice-cream-block {
+    width: 180px;
+    height: 250px;
+    padding: 12px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 415px) and (max-width: 767px) {
+  .ice-cream-block {
+    width: 200px;
+    height: 280px;
+    padding: 14px;
+    gap: 14px;
+    border-radius: 18px;
+  }
 }
 
 @media (min-width: 1200px) {
   .ice-cream-block {
-    width: 360px;
-    height: 480px;
-    padding: 28px;
-    gap: 28px;
-    border-radius: 24px;
+    width: 280px;
+    height: 380px;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 22px;
   }
 }
 
 @media (min-width: 1600px) {
   .ice-cream-block {
-    width: 420px;
-    height: 560px;
-    padding: 32px;
-    gap: 32px;
-    border-radius: 28px;
+    width: 320px;
+    height: 420px;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 24px;
   }
 }
 
 .ice-cream-image-container {
-  width: 240px;
-  height: 240px;
+  width: 188px;
+  height: 188px;
   background-color: #FBF8F4;
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
+/* iPhone 6 and small screens */
+@media (max-width: 375px) {
+  .ice-cream-image-container {
+    width: 144px;
+    height: 144px;
+    border-radius: 10px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 414px) {
+  .ice-cream-image-container {
+    width: 156px;
+    height: 156px;
+    border-radius: 12px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 415px) and (max-width: 767px) {
+  .ice-cream-image-container {
+    width: 172px;
+    height: 172px;
+    border-radius: 14px;
+  }
+}
+
 @media (min-width: 1200px) {
   .ice-cream-image-container {
-    width: 304px;
-    height: 304px;
-    border-radius: 20px;
+    width: 240px;
+    height: 240px;
+    border-radius: 18px;
   }
 }
 
 @media (min-width: 1600px) {
   .ice-cream-image-container {
-    width: 356px;
-    height: 356px;
-    border-radius: 24px;
+    width: 272px;
+    height: 272px;
+    border-radius: 20px;
   }
 }
 
@@ -212,13 +363,13 @@
 }
 
 .start-button {
-  width: 240px;
-  height: 80px;
+  width: 188px;
+  height: 64px;
   background-color: #1261AA;
   color: white;
   border: none;
-  border-radius: 40px;
-  font-size: 22px;
+  border-radius: 32px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -227,24 +378,59 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  padding: 24px 0;
+  padding: 18px 0;
+}
+
+/* iPhone 6 and small screens */
+@media (max-width: 375px) {
+  .start-button {
+    width: 144px;
+    height: 44px;
+    font-size: 14px;
+    padding: 12px 0;
+    border-radius: 22px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 414px) {
+  .start-button {
+    width: 156px;
+    height: 52px;
+    font-size: 16px;
+    padding: 14px 0;
+    border-radius: 26px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 415px) and (max-width: 767px) {
+  .start-button {
+    width: 172px;
+    height: 56px;
+    font-size: 18px;
+    padding: 16px 0;
+    border-radius: 28px;
+  }
 }
 
 @media (min-width: 1200px) {
   .start-button {
-    width: 304px;
-    height: 96px;
-    font-size: 26px;
-    padding: 30px 0;
+    width: 240px;
+    height: 72px;
+    font-size: 22px;
+    padding: 20px 0;
+    border-radius: 36px;
   }
 }
 
 @media (min-width: 1600px) {
   .start-button {
-    width: 356px;
-    height: 112px;
-    font-size: 32px;
-    padding: 36px 0;
+    width: 272px;
+    height: 80px;
+    font-size: 26px;
+    padding: 24px 0;
+    border-radius: 40px;
   }
 }
 
@@ -364,11 +550,20 @@
 .group-ice-cream-right {
   position: absolute;
   width: 75vw;
-  right: -40vw;
-  bottom: -55vh;
+  right: calc(-40vw + env(safe-area-inset-right));
+  bottom: calc(-55vh + env(safe-area-inset-bottom));
   transform: rotate(-30deg);
   opacity: 1;
   z-index: 1;
+}
+
+/* For small screens, adjust positioning */
+@media (max-width: 414px) {
+  .group-ice-cream-right {
+    width: 80vw;
+    right: calc(-45vw + env(safe-area-inset-right));
+    bottom: calc(-45vh + env(safe-area-inset-bottom));
+  }
 }
 
 @keyframes fadeInSlide {

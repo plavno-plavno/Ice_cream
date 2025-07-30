@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Ice Cream App</title>
   <style>
     * {
@@ -12,7 +12,8 @@
     }
     
     body, html {
-      height: 100vh;
+      /* height: 100vh; */
+      height: 100dvh; /* Dynamic viewport height for mobile */
       width: 100vw;
       margin: 0;
       padding: 0;
@@ -22,7 +23,8 @@
     
     #root {
       width: 100vw;
-      height: 100vh;
+      /* height: 100vh; */
+      height: 100dvh; /* Dynamic viewport height for mobile */
       position: relative;
     }
   </style>
