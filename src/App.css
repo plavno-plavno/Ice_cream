@@ -143,7 +143,7 @@
   width: 65vw; /* Fallback */
   width: clamp(60vw, 65vw, 70vw);
   margin-top: -80px; /* Fallback */
-  margin-top: clamp(-140px, -15vh, -60px);
+  margin-top: clamp(-140px, -15vh, -50px);
   align-self: center;
   -webkit-box-flex: 1; /* Old Safari */
   -ms-flex: 1; /* IE 10 */
