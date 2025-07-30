@@ -161,7 +161,7 @@ const SuccessPage = () => (
 
 // Main App Component
 function App() {
-  const [currentPage, setCurrentPage] = useState(PAGES.LANDING)
+  const [currentPage, setCurrentPage] = useState(PAGES.SUCCESS)
   const {
     isLoading,
     setIsLoading,
@@ -266,11 +266,11 @@ function App() {
 
   return (
     <div className="app" onClick={currentPage === PAGES.LANDING ? handleLandingClick : undefined}>
-      <div className="sidebar"/>
       <div className="content">
-        {renderCurrentPage()}
+        <div className="content-container">
+          {renderCurrentPage()}
+        </div>
       </div>
-      <div className="sidebar"/>
     </div>
   )
 }
