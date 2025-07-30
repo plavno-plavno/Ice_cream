@@ -161,7 +161,7 @@ const SuccessPage = () => (
 
 // Main App Component
 function App() {
-  const [currentPage, setCurrentPage] = useState(PAGES.SUCCESS)
+  const [currentPage, setCurrentPage] = useState(PAGES.LANDING)
   const {
     isLoading,
     setIsLoading,
