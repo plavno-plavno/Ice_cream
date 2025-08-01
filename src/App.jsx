@@ -10,11 +10,13 @@ const PAGES = {
 
 const TIMERS = {
   INACTIVITY: 10000, // 10 seconds
-  LOADING: 30000,    // 30 seconds
+  LOADING: 120000,    // 30 seconds
   SUCCESS: 5000      // 5 seconds
 }
 
-const LOADING_STEP = 100 / (TIMERS.LOADING / 1000) // Progress per second
+const LOADING_TIME = TIMERS.LOADING / 1000
+
+const LOADING_STEP = 100 / LOADING_TIME // Progress per second
 
 // Custom hook for timer management
 const useTimer = () => {
@@ -66,11 +68,11 @@ const useInterval = () => {
 const useLoadingState = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [loadingProgress, setLoadingProgress] = useState(0)
-  const [countdown, setCountdown] = useState(30)
+  const [countdown, setCountdown] = useState(LOADING_TIME)
   
   const resetLoading = () => {
     setLoadingProgress(0)
-    setCountdown(30)
+    setCountdown(LOADING_TIME)
   }
   
   return {
